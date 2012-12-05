@@ -20,9 +20,12 @@ th {border-top:30px solid #fff !important;}
 #messages .nickname {text-align:right;}
 .message-highlighted td {background:#ffc !important;}
 
-#nicknames {margin-bottom:0;}
+#nicknames {margin-bottom:10px;}
 .nicknames-row {position:fixed; top:60px; bottom:90px; overflow-y:scroll; z-index:-1;}
 .nicknames-wrap {margin-left:-50px;}
+
+.filters-row {position:fixed; top:60px; bottom:90px; overflow-y:scroll; z-index:1;}
+.filters-wrap {margin-left:-50px;}
 
 .dropdown-menu a {text-align:right;}
 .chat {margin-top:5px; margin-bottom:0; padding:15px 0;}

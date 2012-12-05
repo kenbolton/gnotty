@@ -213,6 +213,15 @@ var gnotty = function(options) {
 
             data.message = urlize($('<div>').text(data.message).html());
 
+            switch (data.message) {
+              case "joins":
+                data.msgClass = 'joins';
+                break;
+              case "leaves":
+                data.msgClass = 'leaves';
+                break;
+            }
+
             // Auto-scroll the window if we're at the bottom of the
             // messages list. We need to calculate it before we add
             // actual message to the list.
@@ -294,3 +303,12 @@ var gnotty = function(options) {
                       'name="password" autocomplete="off">');
 
 };
+
+$(function() {
+    // Create filter actions.
+    $("#toggle-joins-leaves").toggle(function () {
+      $(".joins, .leaves").hide();
+    }, function () {
+      $(".joins, .leaves").show();
+    });
+});

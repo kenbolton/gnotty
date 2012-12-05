@@ -14,7 +14,7 @@ $(function() {
 </script>
 
 <script id="messages-template" type="text/x-jquery-tmpl">
-<tr>
+<tr class="${msgClass}">
     <td class="time">[${time}]</td>
     <td class="nickname" style="color:${color};">${nickname}:</td>
     <td class="message">{% templatetag openvariable %}html message{% templatetag closevariable %}</td>
@@ -33,6 +33,14 @@ $(function() {
 <div class="row nicknames-row hidden">
     <div class="nicknames-wrap">
         <div id="nicknames" class="span2 offset10 well"></div>
+    </div>
+    <div class="filters-wrap">
+        <div id="filters" class="span2 offset10 well">
+            <ul class="nav nav-list">
+                <li class="nav-header">Filters</li>
+                <li><a id="toggle-joins-leaves" href="#">Joins/Leaves</a></li>
+            </ul>
+        </div>
     </div>
 </div>
 

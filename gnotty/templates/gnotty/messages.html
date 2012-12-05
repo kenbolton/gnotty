@@ -18,9 +18,21 @@ if (!location.hash) {
 }
 </script>
 {% endif %}
+
 {% endblock %}
 
 {% block content %}
+<div class="row filters-row">
+    <div class="filters-wrap">
+        <div id="filters" class="span2 offset10 well">
+            <ul class="nav nav-list">
+                <li class="nav-header">Filters</li>
+                <li><a id="toggle-joins-leaves" href="#">Joins/Leaves</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
 <table class="table table-striped" id="messages">
 {% for message in messages %}
 {% with message.message_time.date as day %}
@@ -31,7 +43,7 @@ if (!location.hash) {
     </th>
 </tr>
 {% endifchanged %}
-<tr id="message-{{ message.id }}">
+<tr id="message-{{ message.id }}" class="{% if message.message == 'joins' %}joins{% elif message.message == 'leaves' %}leaves{% endif %}">
     {% if request.GET.q %}
     <td><a class="btn btn-mini btn-primary" href="{{ message.get_absolute_url }}?id={{ message.id }}">View</a></td>
     {% endif %}
