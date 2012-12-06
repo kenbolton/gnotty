@@ -236,9 +236,14 @@ var gnotty = function(options) {
             // Add the number of unread messages to the title if the
             // page isn't focused.
             if (!focused) {
-                unread += 1;
-                var s = (unread == 1 ? '' : 's');
-                $('title').text('(' + unread + ' message' + s + ') ' + title);
+                if ($('input[name="joins-leaves"]').prop('checked') &&
+                      (data.message === 'joins' || data.message === 'leaves')) {
+                    return;
+                } else {
+                    unread += 1;
+                    var s = (unread == 1 ? '' : 's');
+                    $('title').text('(' + unread + ' message' + s + ') ' + title);
+                }
             }
 
         };
@@ -306,9 +311,15 @@ var gnotty = function(options) {
 
 $(function() {
     // Create filter actions.
-    $("#toggle-joins-leaves").toggle(function () {
-      $(".joins, .leaves").hide();
-    }, function () {
-      $(".joins, .leaves").show();
+    var checkbox = $('input[name="joins-leaves"]');
+    $('label[for="joins-leaves"]').click(function() {
+        if (checkbox.prop('checked')) {
+            $('<style>').text('.joins, .leaves {display:none!important}').appendTo('head');
+            checkbox.prop('checked', true);
+        } else {
+            $('<style>').text('.joins, .leaves {display:table-row!important}').appendTo('head');
+            checkbox.prop('checked', false);
+        }
+
     });
 });

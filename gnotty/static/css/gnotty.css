@@ -26,6 +26,7 @@ th {border-top:30px solid #fff !important;}
 
 .filters-row {position:fixed; top:60px; bottom:90px; overflow-y:scroll; z-index:1;}
 .filters-wrap {margin-left:-50px;}
+input[name="joins-leaves"] {display: inline; margin:-5px 0 0 5px;}
 
 .dropdown-menu a {text-align:right;}
 .chat {margin-top:5px; margin-bottom:0; padding:15px 0;}

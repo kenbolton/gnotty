@@ -27,7 +27,13 @@ if (!location.hash) {
         <div id="filters" class="span2 offset10 well">
             <ul class="nav nav-list">
                 <li class="nav-header">Filters</li>
-                <li><a id="toggle-joins-leaves" href="#">Joins/Leaves</a></li>
+                <li>
+                    <form>
+                        <label for="joins-leaves">Joins/Leaves
+                            <input type="checkbox" name="joins-leaves" id="joins-leaves" />
+                        </label>
+                    </form>
+                </li>
             </ul>
         </div>
     </div>
